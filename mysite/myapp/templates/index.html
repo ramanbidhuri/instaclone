@@ -1,184 +1,71 @@
 <!DOCTYPE html>
-<html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-<style>
-/* Full-width input fields */
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-/* Set a style for all buttons */
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
- img {
-            height: 100px;
-            width: 100px;
-            border-radius: 20px;
+    <title>Instagram Clone</title>
+    <style>
+        body{
+           background: url("https://www.walldevil.com/wallpapers/a33/design-colorful-amazing-wallpapers-freewallpapers-wallpaper-abstract.jpg");
+           background-size: cover;
+           background-repeat: no-repeat;
+           -webkit-background-size: cover;
+            text-align: center;
+       }
+           div{
+            font-family: Cambria;
+            color: darkslategrey;
+            margin: 10px; }
+            form{
+            font-size: 16px;
         }
-/* Extra styles for the cancel button */
-.cancelbtn {
-    padding: 14px 20px;
-    background-color: #f44336;
+        label{
+display:inline-block;
+width:200px;
+text-align:right;
+            margin-left: -120px;
 }
-a {
-            font-size: 18px;
-            color: red;
+        button{
+            font-size: 16px;
         }
-/* Float cancel and signup buttons and add an equal width */
-.cancelbtn,.signupbtn {
-    float: left;
-    width: 50%;
-}
-/* Add padding to container elements */
-.container {
-    padding: 16px;
-}
-/* Clear floats */
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-/* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
-    .cancelbtn, .signupbtn {
-       width: 100%;
-    }
-}
-</style>
 
-<script>
-function ValidateContactForm()
-{
-    var Username = document.ContactForm.username;
-    var Name = document.ContactForm.name;
-    var Email = document.ContactForm.email;
-    var Password = document.ContactForm.password;
-    if (Name.value == "")
-    {
-        window.alert("Please enter your name.");
-        name.focus();
-        return false;
-    }
-    if (Email.value == "")
-    {
-        window.alert("Please enter a valid e-mail address.");
-        email.focus();
-        return false;
-    }
-    if (Email.value.indexOf("@", 0) < 0)
-    {
-        window.alert("Please enter a valid e-mail address.");
-        email.focus();
-        return false;
-    }
-    if (Email.value.indexOf(".", 0) < 0)
-    {
-        window.alert("Please enter a valid e-mail address.");
-        email.focus();
-        return false;
-    }
-     if (Username.value == "")
-    {
-        window.alert("Please enter your username.");
-        name.focus();
-        return false;
-    }
-     if ( Password.value=="")
-    {
-        window.alert("Please enter a password");
-        name.focus();
-        return false;
-    }
-}
-</script>
+    </style>
 </head>
-<body bgcolor="#add8e6">
-<h1><center><b>InstaClone Signup Form</b></center></h1>
+<body>
+     <div class="main">
+            <h1> Instagram Clone</h1>
+            <h3>Sign Up</h3>
+     </div>
+     <div>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label for="username">Username: </label>
+                <input id="username" type="text" name="username" value={{ username }}>
+            </div>
 
-<center><img src="https://public-assets.envato-static.com/assets/header-footer/social/instagram-7527061010a48c8afcf551be64441f1e32396592b1fdb7bb71572ca65e46e877.svg"></center>
+            <div>
+                <label for="name">Name: </label>
+                <input id="name" type="text" name="name" value={{ name }}>
+            </div>
 
+            <div>
+                <label for="email">Email: </label>
+                <input id="email" type="text" name="email" value={{ email }}>
+            </div>
 
-
-
-<form method="post" action="/success/" style="border:1px solid #ccc"
-    name="ContactForm" onsubmit="return ValidateContactForm();">
-    {% csrf_token %}
-  <div class="container">
-      <label for="username"><b>Username:</b></label> <input id="username" placeholder="Enter your Username" type="text" name="username" size="46" value={{ username }}>
-            <br>
-            <br>
-
-             <label for="name"><b>Name:</b></label><input id="name" type="text" placeholder="Enter your name" name="name" size="50" value={{ name }}>
-                 <br>
-                <br>
-
-               <label for="email"><b>Email:</b> </label>
-                <input id="email" type="text" name="email" size="50" placeholder="Enter your Email" value={{ email }}>
-
-                <br>
-                <br>
-
-      <label for="password"><b>Password:</b> </label>
-                <input id="password" type="password" name="password" placeholder="Enter your Password " size="50" value={{ password }}>
-
-            <br>
-            <br>
+            <div>
+                <label for="password">Password: </label>
+                <input id="password" type="password" name="password" value={{ password }}>
+            </div>
+                <input type="submit" value="Sign Up">
+        </form>
 
 
+    </div><br><br>
 
-    <div class="clearfix">
-      <button type="button" class="cancelbtn">Cancel</button>
-      <button type="submit" class="signupbtn">Sign Up</button>
-    </div>
-  </div>
-</form>
-<center><div><h3>Already a user? Click below link</h3><a href="login/">Login</a> </div>
-    </center>
-
+    <div><h3>Already a user?</h3><a href="login/">Login</a> </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!--<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
